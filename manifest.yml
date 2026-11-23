@@ -1,0 +1,35 @@
+# Paste this into https://api.slack.com/apps -> Create New App -> From a manifest
+display_information:
+  name: Oakhollow RPG
+  description: A text adventure you play right inside Slack.
+  background_color: "#3b2a1a"
+features:
+  bot_user:
+    display_name: Oakhollow
+    always_online: true
+  app_home:
+    messages_tab_enabled: true
+    messages_tab_read_only_enabled: false
+  slash_commands:
+    - command: /rpg
+      description: Play the Oakhollow text RPG
+      usage_hint: "[help | explore | attack | shop | status | leaderboard]"
+      should_escape: false
+oauth_config:
+  scopes:
+    bot:
+      - app_mentions:read
+      - chat:write
+      - commands
+      - im:history
+      - users:read
+settings:
+  event_subscriptions:
+    bot_events:
+      - app_mention
+      - message.im
+  interactivity:
+    is_enabled: true
+  org_deploy_enabled: false
+  socket_mode_enabled: true
+  token_rotation_enabled: false
